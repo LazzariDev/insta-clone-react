@@ -17,7 +17,7 @@ export default function SuggestedUser({ name, followers, avatar }) {
                     </Box>
                 </VStack>
             </Flex>
-            <Button fontSize={13} bg={"transparent"} p={0} h={"max-content"} fontWeight={"medium"} color={"blue.400"} cursor={"pointer"} _hover={{color: "white"}}>
+            <Button onClick={() => setIsFollowed(!isFollowed)} fontSize={13} bg={"transparent"} p={0} h={"max-content"} fontWeight={"medium"} color={"blue.400"} cursor={"pointer"} _hover={{color: "white"}}>
                 {isFollowed ? "Unfollow" : "Follow"}
             </Button>
         </Flex>
