@@ -24,15 +24,15 @@ export default function Sidebar() {
             text: "Create",
         },
         {
-            icon: < Avatar size={"sm"} name="Francesco Virgolini" src="public/profilepic.png" />,
+            icon: < Avatar size={"sm"} name="Francesco Virgolini" src="/profilepic.png" />,
             text: "Profile",
-            link: "/asaprogrammer"
+            link: "/randomguy"
         },
         
     ]
 
     return (
-        <Box height={"100vh"} borderRight={"1px solid"} borderColor={"whiteAlpha.300"} py={8} position={"static"} top={0} left={0} px={{ base: 2, md: 4 }}>
+        <Box height={"100vh"} borderRight={"1px solid"} borderColor={"whiteAlpha.300"} py={8} position={"sticky"} top={0} left={0} px={{ base: 2, md: 4 }}>
             <Flex direction={"column"} gap={10} w="full" height={"full"}>
                 <Link to={"/"} as={RouterLink} pl={2} display={{ base: "none", md: "block"}} cursor="pointer">
                     < InstagramLogo />

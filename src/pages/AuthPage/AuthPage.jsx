@@ -8,7 +8,7 @@ export default function AuthPage() {
                 <Flex justifyContent={"center"} alignItems={"center"}>
                     {/* Left hand-side */}
                     <Box display={{ base: "none", md : "block" }}>
-                        <Image src="/public/auth.png" h={650} alt="Phone image" />
+                        <Image src="/auth.png" h={650} alt="Phone image" />
                     </Box>
 
                     {/* Right hand-side */}
@@ -16,8 +16,8 @@ export default function AuthPage() {
                         < AuthForm />
                         <Box textAlign={"center"}>Get the app.</Box>
                         <Flex gap={5} justifyContent={"center"}>
-                            < Image src="/public/playstore.png" h={10} alt="Playstore logo" />
-                            < Image src="/public/microsoft.png" h={10} alt="Microsoft logo" />
+                            < Image src="/playstore.png" h={10} alt="Playstore logo" />
+                            < Image src="/microsoft.png" h={10} alt="Microsoft logo" />
                         </Flex>
                     </VStack>
                 </Flex>
