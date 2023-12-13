@@ -5,7 +5,7 @@ import useShowToast from "./useShowToast";
 import useAuthStore from "../store/AuthStore";
 
 export default function useSignUpWithEmailAndPassword() {
-    const [ createUserWithEmailAndPassword, loading, error ] = useCreateUserWithEmailAndPassword(auth);
+    const [ createUserWithEmailAndPassword, , loading, error ] = useCreateUserWithEmailAndPassword(auth);
     const showToast = useShowToast();
     const loginUser = useAuthStore(state => state.login);
 
@@ -25,15 +25,11 @@ export default function useSignUpWithEmailAndPassword() {
 
         try {
             const newUser = await createUserWithEmailAndPassword(inputs.email, inputs.password);
-            if (!newUser) {
-                if (error) {
-                    showToast("Error", error.message, "error");
-                } else {
-                    showToast("Error", "The account has not been created, try again.", "error");
-                }
-                
-                return
+            if (!newUser && error) {
+                showToast("Error", error.message, "error");
+                return;
             }
+
             if (newUser) {
                 const userDoc = {
                     uid: newUser.user.uid,
