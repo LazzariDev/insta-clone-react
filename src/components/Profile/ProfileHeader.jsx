@@ -3,6 +3,7 @@ import useUserProfileStore from "../../store/userProfileStore";
 import useAuthStore from "../../store/AuthStore";
 import { auth } from "../../firebase/firebase";
 import EditProfile from "./EditProfile";
+import useFollowUser from "../../hooks/useFollowUser";
 
 export default function ProfileHeader() {
     const { userProfile } = useUserProfileStore();
@@ -10,7 +11,7 @@ export default function ProfileHeader() {
     const authUser = useAuthStore(state => state.user);
     const visitingOwnProfileAndAuth = authUser && authUser.username === userProfile.username; 
     const visitingAnotherProfileAndAuth = authUser && authUser.username !== userProfile.username;
-
+    const { isFollowing, isUpdating, handleFollowUser } = useFollowUser(userProfile?.uid);
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     return (
@@ -33,8 +34,8 @@ export default function ProfileHeader() {
                     )}
                     {visitingAnotherProfileAndAuth && (
                         <Flex gap={4} alignItems={"center"} justifyContent={"center"}>
-                            <Button bg={"blue.500"} color={"white"} _hover={{bg:"blue.600"}} size={{base:"xs", md:"sm"}}>
-                                Follow
+                            <Button onClick={handleFollowUser} isLoading={isUpdating} bg={"blue.500"} color={"white"} _hover={{bg:"blue.600"}} size={{base:"xs", md:"sm"}}>
+                                {isFollowing ? "Unfollow" : "Follow"}
                             </Button>
                         </Flex>
                     )}
