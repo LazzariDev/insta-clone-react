@@ -37,7 +37,7 @@ export default function useSignUpWithEmailAndPassword() {
                     username: inputs.username,
                     fullName: inputs.fullName,
                     bio: "",
-                    profilePicUrl: "",
+                    profilePicURL: "",
                     followers: [],
                     following: [],
                     posts: [],
