@@ -45,7 +45,7 @@ export default function useSignUpWithEmailAndPassword() {
                 }
                 await setDoc(doc(db, "users", newUser.user.uid), userDoc);
                 localStorage.setItem("user-info", JSON.stringify(userDoc));
-                loginUser(userDoc)
+                loginUser(userDoc);
             }
         } catch (error) {
             showToast("Error", error.message, "error");
