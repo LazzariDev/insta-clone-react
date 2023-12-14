@@ -9,7 +9,7 @@ export default function useShowToast() {
             title: title,
             description: description,
             status: status,
-            duration: 3000,
+            duration: 2000,
             isClosable: true,
         })
     }, [toast])
