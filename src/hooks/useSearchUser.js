@@ -9,7 +9,8 @@ export default function useSearchUser() {
     const showToast = useShowToast();
 
     const getUserProfile = async (username) => {
-        setIsLoading(true)
+        setIsLoading(true);
+        setUser(null);
         
         try {
             const q = query(collection(db, "users"), where("username", "==", username));
